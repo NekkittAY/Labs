@@ -138,7 +138,13 @@ namespace ПР1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if (MessageBox.Show("Do you want to exit?",
+                    "Exit",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }
