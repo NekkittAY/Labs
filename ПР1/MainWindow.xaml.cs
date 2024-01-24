@@ -23,6 +23,7 @@ namespace ПР1
         public MainWindow()
         {
             InitializeComponent();
+            ans.IsReadOnly = true;
         }
 
         private void Calc_Click(object sender, RoutedEventArgs e)
@@ -97,7 +98,12 @@ namespace ПР1
 
         private void Clean_Click(object sender, RoutedEventArgs e)
         {
-
+            x.Clear();
+            b.Clear();
+            ans.Clear();
+            sh_x.IsChecked = false;
+            x_2.IsChecked = false;
+            e_x.IsChecked = false;
         }
 
         private void x_TextChanged(object sender, TextChangedEventArgs e)
@@ -128,6 +134,11 @@ namespace ПР1
         private void sh_x_Checked(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
