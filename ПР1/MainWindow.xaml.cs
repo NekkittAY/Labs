@@ -26,97 +26,66 @@ namespace ПР1
             ans.IsReadOnly = true;
         }
 
-        double calc_sinh(double x0, double b0, double condition) {
+        double calculate_function(double x0, double b0, double f) {
+            double condition = x0 * b0;
             double result;
+
             if (1 < condition & condition < 10)
             {
-                result = Math.Exp(Math.Sinh(x0));
+                result = Math.Exp(f);
             }
             else if (12 < condition & condition < 40)
             {
-                result = Math.Sqrt(Math.Abs(Math.Sinh(x0) + 4 * b0));
+                result = Math.Sqrt(Math.Abs(f + 4 * b0));
             }
             else
             {
-                result = b0 * Math.Pow(Math.Sinh(x0), 2);
+                result = b0 * Math.Pow(f, 2);
             }
 
             return result;
         }
 
-        double calc_x_square(double x0, double b0, double condition) {
-            double result;
-            if (1 < condition & condition < 10)
-            {
-                result = Math.Exp(Math.Pow(x0, 2));
+        double calculate_subfunction(string op, double x0) {
+            switch (op) {
+                case "sinh": return Math.Sinh(x0);
+                case "square": return Math.Pow(x0, 2);
+                case "exp": return Math.Exp(x0);
+                default: return 0;
             }
-            else if (12 < condition & condition < 40)
-            {
-                result = Math.Sqrt(Math.Abs(Math.Pow(x0, 2) + 4 * b0));
-            }
-            else
-            {
-                result = b0 * Math.Pow(Math.Pow(x0, 2), 2);
-            }
-
-            return result;
-        }
-
-        double calc_exp(double x0, double b0, double condition) {
-            double result;
-            if (1 < condition & condition < 10)
-            {
-                result = Math.Exp(Math.Exp(x0));
-            }
-            else if (12 < condition & condition < 40)
-            {
-                result = Math.Sqrt(Math.Abs(Math.Exp(x0) + 4 * b0));
-            }
-            else
-            {
-                result = b0 * Math.Pow(Math.Exp(x0), 2);
-            }
-
-            return result;
         }
 
         private void Calc_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(x.Text))
+            if (string.IsNullOrEmpty(x.Text)) { ans.Text = "x is Empty"; }
+            else if (string.IsNullOrEmpty(b.Text)) { ans.Text = "b is Empty"; }
+            else
             {
-                ans.Text = "x is Empty";
-            }
-            else if (string.IsNullOrEmpty(b.Text))
-            {
-                ans.Text = "b is Empty";
-            }
-            else {
                 try
                 {
                     double x0 = Convert.ToDouble(x.Text);
                     double b0 = Convert.ToDouble(b.Text);
 
-                    double condition = x0 * b0;
-
                     if (sh_x.IsChecked == true)
                     {
-                        double result = calc_sinh(x0, b0, condition);
+                        double f = calculate_subfunction("sinh", x0);
+                        double result = calculate_function(x0, b0, f);
                         ans.Text = Convert.ToString(result);
                     }
                     else if (x_2.IsChecked == true)
                     {
-                        double result = calc_x_square(x0, b0, condition);
+                        double f = calculate_subfunction("square", x0);
+                        double result = calculate_function(x0, b0, f);
                         ans.Text = Convert.ToString(result);
                     }
                     else if (e_x.IsChecked == true)
                     {
-                        double result = calc_exp(x0, b0, condition);
+                        double f = calculate_subfunction("exp", x0);
+                        double result = calculate_function(x0, b0, f);
                         ans.Text = Convert.ToString(result);
                     }
                 }
-                catch { 
-                    ans.Text = "Not a number";
-                }
+                catch { ans.Text = "Not a number"; }
             }
         }
 
@@ -165,10 +134,7 @@ namespace ПР1
             if (MessageBox.Show("Do you want to exit?",
                     "Exit",
                     MessageBoxButton.YesNo,
-                    MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                Close();
-            }
+                    MessageBoxImage.Question) == MessageBoxResult.Yes) { Close(); }
         }
     }
 }
