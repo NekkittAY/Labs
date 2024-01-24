@@ -26,6 +26,60 @@ namespace ПР1
             ans.IsReadOnly = true;
         }
 
+        double calc_sinh(double x0, double b0, double condition) {
+            double result;
+            if (1 < condition & condition < 10)
+            {
+                result = Math.Exp(Math.Sinh(x0));
+            }
+            else if (12 < condition & condition < 40)
+            {
+                result = Math.Sqrt(Math.Abs(Math.Sinh(x0) + 4 * b0));
+            }
+            else
+            {
+                result = b0 * Math.Pow(Math.Sinh(x0), 2);
+            }
+
+            return result;
+        }
+
+        double calc_x_square(double x0, double b0, double condition) {
+            double result;
+            if (1 < condition & condition < 10)
+            {
+                result = Math.Exp(Math.Pow(x0, 2));
+            }
+            else if (12 < condition & condition < 40)
+            {
+                result = Math.Sqrt(Math.Abs(Math.Pow(x0, 2) + 4 * b0));
+            }
+            else
+            {
+                result = b0 * Math.Pow(Math.Pow(x0, 2), 2);
+            }
+
+            return result;
+        }
+
+        double calc_exp(double x0, double b0, double condition) {
+            double result;
+            if (1 < condition & condition < 10)
+            {
+                result = Math.Exp(Math.Exp(x0));
+            }
+            else if (12 < condition & condition < 40)
+            {
+                result = Math.Sqrt(Math.Abs(Math.Exp(x0) + 4 * b0));
+            }
+            else
+            {
+                result = b0 * Math.Pow(Math.Exp(x0), 2);
+            }
+
+            return result;
+        }
+
         private void Calc_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(x.Text))
@@ -46,48 +100,18 @@ namespace ПР1
 
                     if (sh_x.IsChecked == true)
                     {
-                        if (1 < condition & condition < 10)
-                        {
-                            ans.Text = Convert.ToString(Math.Exp(Math.Sinh(x0)));
-                        }
-                        else if (12 < condition & condition < 40)
-                        {
-                            ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Sinh(x0) + 4 * b0)));
-                        }
-                        else
-                        {
-                            ans.Text = Convert.ToString(b0 * Math.Pow(Math.Sinh(x0), 2));
-                        }
+                        double result = calc_sinh(x0, b0, condition);
+                        ans.Text = Convert.ToString(result);
                     }
                     else if (x_2.IsChecked == true)
                     {
-                        if (1 < condition & condition < 10)
-                        {
-                            ans.Text = Convert.ToString(Math.Exp(Math.Pow(x0, 2)));
-                        }
-                        else if (12 < condition & condition < 40)
-                        {
-                            ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Pow(x0, 2) + 4 * b0)));
-                        }
-                        else
-                        {
-                            ans.Text = Convert.ToString(b0 * Math.Pow(Math.Pow(x0, 2), 2));
-                        }
+                        double result = calc_x_square(x0, b0, condition);
+                        ans.Text = Convert.ToString(result);
                     }
                     else if (e_x.IsChecked == true)
                     {
-                        if (1 < condition & condition < 10)
-                        {
-                            ans.Text = Convert.ToString(Math.Exp(Math.Exp(x0)));
-                        }
-                        else if (12 < condition & condition < 40)
-                        {
-                            ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Exp(x0) + 4 * b0)));
-                        }
-                        else
-                        {
-                            ans.Text = Convert.ToString(b0 * Math.Pow(Math.Exp(x0), 2));
-                        }
+                        double result = calc_exp(x0, b0, condition);
+                        ans.Text = Convert.ToString(result);
                     }
                 }
                 catch { 
