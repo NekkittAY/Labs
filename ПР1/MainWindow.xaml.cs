@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,55 +36,61 @@ namespace ПР1
                 ans.Text = "b is Empty";
             }
             else {
-                double x0 = Convert.ToDouble(x.Text);
-                double b0 = Convert.ToDouble(b.Text);
-
-                double condition = x0 * b0;
-
-                if (sh_x.IsChecked == true)
+                try
                 {
-                    if (1 < condition & condition < 10)
+                    double x0 = Convert.ToDouble(x.Text);
+                    double b0 = Convert.ToDouble(b.Text);
+
+                    double condition = x0 * b0;
+
+                    if (sh_x.IsChecked == true)
                     {
-                        ans.Text = Convert.ToString(Math.Exp(Math.Sinh(x0)));
+                        if (1 < condition & condition < 10)
+                        {
+                            ans.Text = Convert.ToString(Math.Exp(Math.Sinh(x0)));
+                        }
+                        else if (12 < condition & condition < 40)
+                        {
+                            ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Sinh(x0) + 4 * b0)));
+                        }
+                        else
+                        {
+                            ans.Text = Convert.ToString(b0 * Math.Pow(Math.Sinh(x0), 2));
+                        }
                     }
-                    else if (12 < condition & condition < 40)
+                    else if (x_2.IsChecked == true)
                     {
-                        ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Sinh(x0) + 4 * b0)));
+                        if (1 < condition & condition < 10)
+                        {
+                            ans.Text = Convert.ToString(Math.Exp(Math.Pow(x0, 2)));
+                        }
+                        else if (12 < condition & condition < 40)
+                        {
+                            ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Pow(x0, 2) + 4 * b0)));
+                        }
+                        else
+                        {
+                            ans.Text = Convert.ToString(b0 * Math.Pow(Math.Pow(x0, 2), 2));
+                        }
                     }
-                    else
+                    else if (e_x.IsChecked == true)
                     {
-                        ans.Text = Convert.ToString(b0 * Math.Pow(Math.Sinh(x0), 2));
+                        if (1 < condition & condition < 10)
+                        {
+                            ans.Text = Convert.ToString(Math.Exp(Math.Exp(x0)));
+                        }
+                        else if (12 < condition & condition < 40)
+                        {
+                            ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Exp(x0) + 4 * b0)));
+                        }
+                        else
+                        {
+                            ans.Text = Convert.ToString(b0 * Math.Pow(Math.Exp(x0), 2));
+                        }
                     }
                 }
-                else if (x_2.IsChecked == true)
-                {
-                    if (1 < condition & condition < 10)
-                    {
-                        ans.Text = Convert.ToString(Math.Exp(Math.Pow(x0, 2)));
-                    }
-                    else if (12 < condition & condition < 40)
-                    {
-                        ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Pow(x0, 2) + 4 * b0)));
-                    }
-                    else
-                    {
-                        ans.Text = Convert.ToString(b0 * Math.Pow(Math.Pow(x0, 2), 2));
-                    }
-                }
-                else if (e_x.IsChecked == true)
-                {
-                    if (1 < condition & condition < 10)
-                    {
-                        ans.Text = Convert.ToString(Math.Exp(Math.Exp(x0)));
-                    }
-                    else if (12 < condition & condition < 40)
-                    {
-                        ans.Text = Convert.ToString(Math.Sqrt(Math.Abs(Math.Exp(x0) + 4 * b0)));
-                    }
-                    else
-                    {
-                        ans.Text = Convert.ToString(b0 * Math.Pow(Math.Exp(x0), 2));
-                    }
+                catch { 
+                    ans.Text = "Not a number";
                 }
             }
         }
