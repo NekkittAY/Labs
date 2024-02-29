@@ -1,0 +1,7 @@
+C:\Users\217546\Desktop\DotNetDebugging\DotNetDebugging\obj\Debug\DotNetDebugging.csproj.AssemblyReference.cache
+C:\Users\217546\Desktop\DotNetDebugging\DotNetDebugging\obj\Debug\DotNetDebugging.csproj.CoreCompileInputs.cache
+C:\Users\217546\Desktop\DotNetDebugging\DotNetDebugging\bin\Debug\DotNetDebugging.exe.config
+C:\Users\217546\Desktop\DotNetDebugging\DotNetDebugging\bin\Debug\DotNetDebugging.exe
+C:\Users\217546\Desktop\DotNetDebugging\DotNetDebugging\bin\Debug\DotNetDebugging.pdb
+C:\Users\217546\Desktop\DotNetDebugging\DotNetDebugging\obj\Debug\DotNetDebugging.exe
+C:\Users\217546\Desktop\DotNetDebugging\DotNetDebugging\obj\Debug\DotNetDebugging.pdb
