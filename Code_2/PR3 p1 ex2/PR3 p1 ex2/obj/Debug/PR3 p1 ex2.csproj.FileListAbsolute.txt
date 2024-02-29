@@ -1,0 +1,7 @@
+C:\Users\217546\Desktop\PR3 p1 ex2\PR3 p1 ex2\bin\Debug\PR3 p1 ex2.exe.config
+C:\Users\217546\Desktop\PR3 p1 ex2\PR3 p1 ex2\bin\Debug\PR3 p1 ex2.exe
+C:\Users\217546\Desktop\PR3 p1 ex2\PR3 p1 ex2\bin\Debug\PR3 p1 ex2.pdb
+C:\Users\217546\Desktop\PR3 p1 ex2\PR3 p1 ex2\obj\Debug\PR3 p1 ex2.csproj.CoreCompileInputs.cache
+C:\Users\217546\Desktop\PR3 p1 ex2\PR3 p1 ex2\obj\Debug\PR3 p1 ex2.exe
+C:\Users\217546\Desktop\PR3 p1 ex2\PR3 p1 ex2\obj\Debug\PR3 p1 ex2.pdb
+C:\Users\217546\Desktop\PR3 p1 ex2\PR3 p1 ex2\obj\Debug\PR3 p1 ex2.csproj.AssemblyReference.cache
